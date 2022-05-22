@@ -1,6 +1,12 @@
 {
   "name": "abanca-angular-intro",
-  "version": "0.0.0",
+  "version": "13.0.0",
+  "description": "Introductory course to Angular",
+  "author": {
+    "name": "Alberto Basalo",
+    "email": "albertobasalo@hotmail.com",
+    "url": "https://twitter.com/albertobasalo"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
