@@ -19,8 +19,9 @@
       <ul>
         <li *ngFor="let trip of trips">
           <span [ngClass]="getClassForStatus(trip.status)">{{ trip.destination }}</span>
-          <span *ngIf="trip.kind==='WithStay'"> 🧳 </span>
-          <span *ngIf="trip.kind==='TripOnly'"> 🧑🏼‍🚀 </span>
+          <ng-container *ngIf="trip.kind==='WithStay' then withStay; else tripOnly"></ng-container>
+          <ng-template #withStay> 🧳 </ng-template>
+          <ng-template #tripOnly> 🧑🏼‍🚀 </ng-template>
         </li>
       </ul>
       <button (click)="reload('trips')"> ♻️ </button>
