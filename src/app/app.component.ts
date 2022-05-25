@@ -90,4 +90,18 @@ export class AppComponent {
       premiumFoodPrice: 1000,
     },
   ];
+  reloading = false;
+  reload(list: string) {
+    this.reloading = true;
+    console.warn('Reloading...' + list);
+  }
+  getAgenciesCounter() {
+    return this.agencies.length;
+  }
+  getClassForStatus(status: string) {
+    if (status === 'Confirmed') {
+      return 'green';
+    }
+    return 'orange';
+  }
 }

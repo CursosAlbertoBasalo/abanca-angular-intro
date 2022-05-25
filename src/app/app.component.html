@@ -4,7 +4,7 @@
   </header>
   <main>
     <article>
-      <h3>We work with {{ agencies.length }} agencies</h3>
+      <h3>We work with {{ getAgenciesCounter() }} agencies</h3>
       <ul>
         <li *ngFor=" let agency of agencies ">
           <span [ngClass]="agency.status | lowercase">{{ agency.name }}</span>
@@ -12,7 +12,21 @@
           <ng-template #orbital> 🌎 </ng-template>
         </li>
       </ul>
+      <button (click)="reload('agencies')"> ♻️ </button>
     </article>
+    <article>
+      <h3>We work with {{ trips.length }} trips</h3>
+      <ul>
+        <li *ngFor="let trip of trips">
+          <span [ngClass]="getClassForStatus(trip.status)">{{ trip.destination }}</span>
+          <span *ngIf="trip.kind==='WithStay'"> 🧳 </span>
+          <span *ngIf="trip.kind==='TripOnly'"> 🧑🏼‍🚀 </span>
+        </li>
+      </ul>
+      <button (click)="reload('trips')"> ♻️ </button>
+    </article>
+    <aside *ngIf="reloading"> ♻️ Reloading... </aside>
+    <aside *ngIf="reloading"> ♻️ Reloading... </aside>
     <!-- <router-outlet></router-outlet> -->
   </main>
   <footer>

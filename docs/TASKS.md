@@ -20,8 +20,8 @@
 
 > Student tasks:
 
-- [ ] Show trips counter
-- [ ] List all trips
-- [ ] Show trip details
-- [ ] Confirmed trips in green, waiting trips in orange
-- [ ] Show an icon to indicate the trip kind
+- [x] Show trips counter
+- [x] List all trips
+- [x] Show trip details
+- [x] Confirmed trips in green, waiting trips in orange
+- [x] Show an icon to indicate the trip kind

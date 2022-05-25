@@ -7,3 +7,10 @@
 .pending {
   font-style: italic;
 }
+.green {
+  color: green;
+}
+
+.orange {
+  color: orange
+}
