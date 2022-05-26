@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
   --spacing: 0.4rem;
+  --font-size: 14px;
+  --typography-spacing-vertical: 0.5rem;
+  --nav-element-spacing-vertical: 0.5rem;
 }

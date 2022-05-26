@@ -1,6 +1,6 @@
 <body>
   <header>
-    <h1>🚀 {{ title }}</h1>
+    <h1>🚀 {{ title | uppercase }}</h1>
   </header>
   <main>
     <article>
@@ -19,18 +19,24 @@
       <ul>
         <li *ngFor="let trip of trips">
           <span [ngClass]="getClassForStatus(trip.status)">{{ trip.destination }}</span>
+          <span> 💸 {{ trip.flightPrice | currency }}</span>
+          <span> ⤴️ {{ trip.startDate | date:'yyyy-MMM-dd' }}</span>
+          <span> ⤵️ {{ trip.endDate | date:'yyyy-MMM-dd' }}</span>
+          <span [ngClass]="getClassForPlaces(trip.places)"> 🧑🏼‍🚀 {{ trip.places }}</span>
           <ng-container *ngIf="trip.kind==='WithStay' then withStay; else tripOnly"></ng-container>
           <ng-template #withStay> 🧳 </ng-template>
-          <ng-template #tripOnly> 🧑🏼‍🚀 </ng-template>
+          <ng-template #tripOnly> 🛰️ </ng-template>
         </li>
       </ul>
       <button (click)="reload('trips')"> ♻️ </button>
     </article>
-    <aside *ngIf="reloading"> ♻️ Reloading... </aside>
+    <aside *ngIf="reloading"
+           aria-busy="true"> Reloading... please wait. </aside>
     <!-- <router-outlet></router-outlet> -->
   </main>
   <footer>
     <h6>🚀 {{ title }}</h6>
     <p>{{ subtitle | uppercase }}</p>
+    <a [href]="authorUrl">Alberto Basalo</a>
   </footer>
 </body>

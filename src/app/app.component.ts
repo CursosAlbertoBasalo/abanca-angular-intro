@@ -6,9 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'Astro Bookings';
-  subtitle = 'Welcome on board';
-  agencies = [
+  public title = 'Astro Bookings';
+  public subtitle = 'Welcome on board';
+  public author = 'Alberto Basalo';
+  public authorUrl = 'https://twitter.com/albertobasalo';
+  public agencies = [
     {
       id: 'space-y',
       name: 'Space Y',
@@ -28,7 +30,7 @@ export class AppComponent {
       status: 'Pending',
     },
   ];
-  trips = [
+  public trips = [
     {
       id: 'space-y-moon-1',
       agencyId: 'space-y',
@@ -90,18 +92,26 @@ export class AppComponent {
       premiumFoodPrice: 1000,
     },
   ];
-  reloading = false;
-  reload(list: string) {
+
+  public reloading = false;
+
+  public reload(list: string) {
     this.reloading = true;
-    console.warn('Reloading...' + list);
+    console.warn('♻️ Reloading ' + list);
   }
-  getAgenciesCounter() {
+
+  public getAgenciesCounter() {
     return this.agencies.length;
   }
-  getClassForStatus(status: string) {
+  public getClassForStatus(status: string) {
     if (status === 'Confirmed') {
       return 'green';
     }
     return 'orange';
+  }
+  public getClassForPlaces(places: number) {
+    if (places === 0) return 'sold-out';
+    if (places < 8) return 'few-places';
+    return '';
   }
 }
