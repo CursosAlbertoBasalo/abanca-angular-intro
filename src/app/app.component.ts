@@ -92,7 +92,6 @@ export class AppComponent {
       premiumFoodPrice: 1000,
     },
   ];
-
   public reloading = false;
 
   public reload(list: string) {
