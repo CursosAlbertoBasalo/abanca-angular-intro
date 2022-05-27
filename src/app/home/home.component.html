@@ -25,5 +25,4 @@
   </ul>
   <button (click)="reload('trips')"> ♻️ </button>
 </article>
-<aside *ngIf="reloading"
-       aria-busy="true"> Reloading... please wait. </aside>
+<app-reloading *ngIf="reloading"></app-reloading>
