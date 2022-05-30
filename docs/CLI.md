@@ -26,3 +26,10 @@ ng g c home --export
 ng g m shared
 ng g c shared/reloading --export
 ```
+
+## 3. Router
+
+```bash
+ng g m about --route=about --module=app
+
+```
