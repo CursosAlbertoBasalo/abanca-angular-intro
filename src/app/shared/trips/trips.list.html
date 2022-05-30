@@ -1,1 +1,18 @@
-<p>trips works!</p>
+<article>
+  <h3>We work with {{ trips.length }} trips</h3>
+  <ul>
+    <li *ngFor="let trip of trips">
+      <a [routerLink]="['/','trips','trip', trip.id]"
+         [ngClass]="getClassForStatus(trip.status)">{{ trip.destination }}</a>
+      <span> 💸 {{ trip.flightPrice | currency }}</span>
+      <span> ⤴️ {{ trip.startDate | date:'yyyy-MMM-dd' }}</span>
+      <span> ⤵️ {{ trip.endDate | date:'yyyy-MMM-dd' }}</span>
+      <span [ngClass]="getClassForPlaces(trip.places)"> 🧑🏼‍🚀 {{ trip.places }}</span>
+      <ng-container *ngIf="trip.kind==='WithStay' then withStay; else tripOnly"></ng-container>
+      <ng-template #withStay> 🧳 </ng-template>
+      <ng-template #tripOnly> 🛰️ </ng-template>
+    </li>
+  </ul>
+  <button (click)="reload('trips')"> ♻️ </button>
+</article>
+<app-reloading *ngIf="reloading"></app-reloading>
