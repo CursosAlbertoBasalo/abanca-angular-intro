@@ -37,7 +37,26 @@
 
 > Student tasks:
 
-- [ ] Create a Home module
-- [ ] Move the main node to the Home component
-- [ ] Create a Shared module
-- [ ] Move the reloading content to a component on the Shared module
+- [x] Create a Home module
+- [x] Move the main node to the Home component
+- [x] Create a Shared module
+- [x] Move the reloading content to a component on the Shared module
+
+## 3. Routes
+
+- [x] Route for home page (/) bind to HomeComponent
+- [x] Route for an about page (`/about`) bind lazy to AboutModule
+- [x] Route for a register page (`auth/register`) bind lazy to RegisterModule
+- [x] Route for an agencies page (`/agencies`) bind lazy to AgenciesModule
+- [ ] Use a shared agencies list component on the agencies page
+- [ ] Route for an agency page (`/agencies/:id`) bind lazy to AgencyModule
+- [ ] Use an agency details component on the agency page
+
+> Student tasks:
+
+- [x] Route for an about page (`/contact`) bind lazy to ContactModule
+- [ ] Route for a login page (`auth/login`) bind lazy to LoginModule
+- [ ] Route for a trips page (`/trips`) bind lazy to TripsModule
+- [ ] Use a shared trips list component on the trips page
+- [ ] Route for a trip page (`/trips/:id`) bind lazy to TripModule
+- [ ] Use a trip details component on the trip page
