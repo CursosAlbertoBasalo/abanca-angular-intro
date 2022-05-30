@@ -2,20 +2,23 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReloadingComponent } from './reloading/reloading.component';
 import { AgenciesList } from './agencies/agencies.list';
+import { TripsList } from './trips/trips.list';
 
 
 
 @NgModule({
   declarations: [
     ReloadingComponent,
-    AgenciesList
+    AgenciesList,
+    TripsList
   ],
   imports: [
     CommonModule
   ],
   exports: [
     ReloadingComponent,
-    AgenciesList
+    AgenciesList,
+    TripsList
   ]
 })
 export class SharedModule { }

@@ -36,4 +36,7 @@ ng g m agencies --route=agencies --module=app
 ng g c shared/agencies --export --type=list
 
 ng g m contact --route=contact --module=app
+ng g m auth/login --route=auth/login --module=app
+ng g m trips --route=trips --module=app
+ng g c shared/trips --export --type=list
 ```
