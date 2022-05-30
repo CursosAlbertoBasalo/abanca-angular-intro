@@ -58,5 +58,5 @@
 - [x] Route for a login page (`auth/login`) bind lazy to LoginModule
 - [x] Route for a trips page (`/trips`) bind lazy to TripsModule
 - [x] Use a shared trips list component on the trips page
-- [ ] Route for a trip page (`/trips/:id`) bind lazy to TripModule
-- [ ] Use a trip details component on the trip page
+- [x] Route for a trip page (`/trips/:id`) bind lazy to TripModule
+- [x] Use a trip details component on the trip page
