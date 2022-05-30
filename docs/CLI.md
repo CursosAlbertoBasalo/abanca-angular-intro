@@ -32,4 +32,6 @@ ng g c shared/reloading --export
 ```bash
 ng g m about --route=about --module=app
 ng g m auth/register --route=auth/register --module=app
+ng g m agencies --route=agencies --module=app
+ng g c shared/agencies --export --type=list
 ```

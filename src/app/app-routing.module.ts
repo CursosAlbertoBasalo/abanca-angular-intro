@@ -22,6 +22,7 @@ const rutas: Routes = [
     loadChildren: () =>
       import('./auth/register/register.module').then((m) => m.RegisterModule),
   },
+  { path: 'agencies', loadChildren: () => import('./agencies/agencies.module').then(m => m.AgenciesModule) },
 ];
 
 @NgModule({
