@@ -6,7 +6,8 @@
              type="text"
              formControlName="name"
              [attr.aria-invalid]="hasError('name')">
-      <small *ngIf="mustShowMessage('name')">{{ getErrorMessage('name') }}</small>
+      <small *ngIf="mustShowMessage('name')">{{
+        getErrorMessage('name') }}</small>
     </div>
     <div>
       <label for="range"> Operation range <span *ngIf="hasError('range')">⭕</span></label>
