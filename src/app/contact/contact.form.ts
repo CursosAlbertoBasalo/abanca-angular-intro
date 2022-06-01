@@ -18,8 +18,16 @@ export class ContactForm implements OnInit {
   constructor(formBuilder: FormBuilder) {
     this.form = formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
-      email: new FormControl('', [Validators.required, Validators.email]),
-      message: new FormControl('Call me back'),
+      email: new FormControl('', [
+        Validators.required,
+        Validators.email,
+        Validators.minLength(5),
+      ]),
+      message: new FormControl('Call me back', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(10),
+      ]),
     });
   }
 
@@ -45,6 +53,9 @@ export class ContactForm implements OnInit {
     errorMessage += errors['email'] ? '🔥 Should be an email address ' : ' ';
     errorMessage += errors['minlength']
       ? `🔥 More than ${errors['minlength'].requiredLength} chars`
+      : ' ';
+    errorMessage += errors['maxLength']
+      ? `🔥 Less than ${errors['maxLength'].requiredLength} chars`
       : ' ';
     return errorMessage;
   }
