@@ -34,7 +34,7 @@ export class RegisterForm implements OnInit {
         acceptTerms: new FormControl(false, [Validators.requiredTrue]),
       },
       {
-        validators: this.passwordMatch,
+        validators: [this.passwordMatch],
       }
     );
   }
