@@ -1,0 +1,35 @@
+<form [formGroup]="form">
+  <fieldset>
+    <div>
+      <label for="name"> Agency name <span *ngIf="hasError('name')">⭕</span></label>
+      <input name="name"
+             type="text"
+             formControlName="name"
+             [attr.aria-invalid]="hasError('name')">
+      <small *ngIf="mustShowMessage('name')">{{ getErrorMessage('name') }}</small>
+    </div>
+    <div>
+      <label for="range"> Operation range <span *ngIf="hasError('range')">⭕</span></label>
+      <select name="range"
+              formControlName="range"
+              (change)="onChange('range',$event)">
+        <option *ngFor="let range of ranges">{{ range }}</option>
+      </select>
+      <small *ngIf="mustShowMessage('range')">{{ getErrorMessage('range') }}</small>
+    </div>
+    <div>
+      <label for="status"> Operation status <span *ngIf="hasError('status')">⭕</span></label>
+      <select name="status"
+              formControlName="status"
+              (change)="onChange('status',$event)">
+        <option *ngFor="let status of statuses">{{ status }}</option>
+      </select>
+      <small *ngIf="mustShowMessage('status')">{{ getErrorMessage('status') }}</small>
+    </div>
+  </fieldset>
+  <div>
+    <button type="submit"
+            (click)="onSubmitClick()"
+            [disabled]="form.invalid"> Send new agency data </button>
+  </div>
+</form>

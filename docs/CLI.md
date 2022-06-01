@@ -47,5 +47,9 @@ ng g m trips/trip --module=trips --route=trip/:id
 
 ```bash
 ng g c contact --type=form
+ng g c auth/register --type=form
 
+ng g m agencies/new-agency -m=agencies --route=agency/new
+ng g c agencies/new-agency --type=page
+ng g c agencies/new-agency --type=form
 ```

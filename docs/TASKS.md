@@ -63,9 +63,9 @@
 
 ## 4. Forms
 
-- [ ] Create a form for the contact page
-- [ ] Create a form for the register page
-- [ ] Create a form for a new Agency
+- [x] Create a form for the contact page
+- [x] Create a form for the register page
+- [x] Create a form for a new Agency
 
 > Student tasks:
 

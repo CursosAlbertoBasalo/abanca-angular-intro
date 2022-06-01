@@ -1,0 +1,53 @@
+<form [formGroup]="form">
+  <fieldset>
+    <div>
+      <label for="name"> Your name <span *ngIf="hasError('name')">⭕</span></label>
+      <input name="name"
+             type="text"
+             formControlName="name"
+             [attr.aria-invalid]="hasError('name')">
+      <small *ngIf="mustShowMessage('name')">{{ getErrorMessage('name') }}</small>
+    </div>
+    <div>
+      <label for="email"> Your email address <span *ngIf="hasError('email')">⭕</span></label>
+      <input name="email"
+             type="email"
+             formControlName="email"
+             [attr.aria-invalid]="hasError('email')">
+      <small *ngIf="mustShowMessage('email')">{{ getErrorMessage('email') }}</small>
+    </div>
+    <div>
+      <label for="password"> Your password <span *ngIf="hasError('password')">⭕</span></label>
+      <input name="password"
+             type="password"
+             formControlName="password"
+             [attr.aria-invalid]="hasError('password')">
+      <small *ngIf="mustShowMessage('password')">{{ getErrorMessage('password') }}</small>
+    </div>
+    <div>
+      <label for="confirmPassword">Confirm your password <span
+              *ngIf="hasError('confirmPassword')">⭕</span></label>
+      <input name="confirmPassword"
+             type="password"
+             formControlName="confirmPassword"
+             [attr.aria-invalid]="hasError('confirmPassword')">
+      <small *ngIf="mustShowMessage('confirmPassword')">{{ getErrorMessage('confirmPassword')
+        }}</small>
+    </div>
+    <small>{{ getPasswordMatchError() }}</small>
+    <div>
+      <input name="acceptTerms"
+             type="checkbox"
+             formControlName="acceptTerms"
+             [attr.aria-invalid]="hasError('acceptTerms')">
+      <label for="acceptTerms"
+             class="form-check-label">Accept Terms & Conditions <span
+              *ngIf="hasError('acceptTerms')">⭕</span></label>
+    </div>
+  </fieldset>
+  <div>
+    <button type="submit"
+            (click)="onSubmitClick()"
+            [disabled]="form.invalid"> Send registration data </button>
+  </div>
+</form>
