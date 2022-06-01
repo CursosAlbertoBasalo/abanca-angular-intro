@@ -69,5 +69,4 @@
 
 > Student tasks:
 
-- [ ] Create a form for the login page
-- [ ] Create a form for a new Trip
+- [x] Create a form for the login page
