@@ -25,6 +25,12 @@
       "name": "New Asa",
       "range": "Interstellar",
       "status": "Pending"
+    },
+    {
+      "id": "abanca-star-line",
+      "name": "Abanca Star Line",
+      "range": "Orbital",
+      "status": "Active"
     }
   ],
   "trips": [

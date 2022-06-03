@@ -58,7 +58,7 @@ export class NewAgencyForm implements OnInit {
     const id = this.util.getDashId(name);
     const newAgencyData: Agency = { id, name, range, status };
     console.warn('Send register data ', newAgencyData);
-    this.data.postAgency(newAgencyData);
+    this.data.postAgency(newAgencyData).subscribe();
   }
 
   ngOnInit(): void {}

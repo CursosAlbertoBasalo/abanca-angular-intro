@@ -77,7 +77,7 @@ export class DataService {
   }
 
   public postAgency(newAgency: Agency) {
-    // this.agencies.push(newAgency);
+    return this.http.post<Agency>('http://localhost:3000/agencies', newAgency);
   }
 
   public getTrips(): any[] {
