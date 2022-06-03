@@ -25,6 +25,7 @@ const rutas: Routes = [
   { path: 'agencies', loadChildren: () => import('./agencies/agencies.module').then(m => m.AgenciesModule) },
   { path: 'auth/login', loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule) },
   { path: 'trips', loadChildren: () => import('./trips/trips.module').then(m => m.TripsModule) },
+  { path: 'simulator', loadChildren: () => import('./simulator/simulator.module').then(m => m.SimulatorModule) },
 ];
 
 @NgModule({
