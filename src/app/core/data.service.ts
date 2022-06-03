@@ -1,45 +1,12 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Agency } from './api/agency.interface';
-
-// class Agency {
-//   public id: string = '';
-//   public name: string = '';
-// }
-
-// interface Agency {
-//   id: string;
-//   name: string;
-//   range: string;
-//   status: string;
-// }
-
-// type Agency = { id: string; name: string; range: string; status: string };
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  private agencies: Agency[] = [
-    {
-      id: 'space-y',
-      name: 'Space Y',
-      range: 'Interplanetary',
-      status: 'Active',
-    },
-    {
-      id: 'green-origin',
-      name: 'Green Origin',
-      range: 'Orbital',
-      status: 'Active',
-    },
-    {
-      id: 'virgin-way',
-      name: 'Virgin Way',
-      range: 'Orbital',
-      status: 'Pending',
-    },
-  ];
-
   private trips = [
     {
       id: 'space-y-moon-1',
@@ -103,14 +70,14 @@ export class DataService {
     },
   ];
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  public getAgencies(): Agency[] {
-    return this.agencies;
+  public getAgencies(): Observable<Agency[]> {
+    return this.http.get<Agency[]>('http://localhost:3000/agencies');
   }
 
   public postAgency(newAgency: Agency) {
-    this.agencies.push(newAgency);
+    // this.agencies.push(newAgency);
   }
 
   public getTrips(): any[] {

@@ -8,11 +8,13 @@ import { DataService } from 'src/app/core/data.service';
   styleUrls: ['./agencies.list.css'],
 })
 export class AgenciesList implements OnInit {
-  public agencies: Agency[];
+  public agencies: Agency[] = [];
   public reloading = false;
 
   constructor(data: DataService) {
-    this.agencies = data.getAgencies();
+    data.getAgencies().subscribe((response) => {
+      this.agencies = response;
+    });
   }
 
   public reload(list: string) {
