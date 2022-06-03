@@ -15,10 +15,10 @@ export class SimulatorPage implements OnInit {
 
   ngOnInit(): void {}
 
-  public onUp() {
-    this.rocket.altitude += this.service.delta;
+  public onUp(delta: number) {
+    this.rocket.altitude += this.service.delta + delta;
   }
-  public onDown() {
-    this.rocket.altitude -= this.service.delta;
+  public onDown(delta: number) {
+    this.rocket.altitude -= this.service.delta + delta;
   }
 }

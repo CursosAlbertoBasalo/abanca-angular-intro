@@ -1,6 +1,6 @@
 <h1>Container Page</h1>
 <app-simulator-view [altitude]="rocket.altitude">
 </app-simulator-view>
-<app-simulator-form (up)="onUp()"
-                    (down)="onDown()">
+<app-simulator-form (up)="onUp($event)"
+                    (down)="onDown($event)">
 </app-simulator-form>

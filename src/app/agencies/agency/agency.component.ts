@@ -10,7 +10,11 @@ export class AgencyComponent implements OnInit {
   public agencyId = '';
 
   constructor(route: ActivatedRoute) {
-    this.agencyId = route.snapshot.paramMap.get('id') || '';
+    // this.agencyId = route.snapshot.paramMap.get('id') || '';
+
+    route.paramMap.subscribe((paramMap) => {
+      this.agencyId = paramMap.get('id') || '';
+    });
   }
 
   ngOnInit(): void {}
