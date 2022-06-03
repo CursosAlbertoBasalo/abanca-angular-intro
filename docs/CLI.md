@@ -60,3 +60,14 @@ ng g c agencies/new-agency --type=form
 ng g s core/formMessages
 ng g s core/data
 ```
+
+## 7. Http
+
+```bash
+npm i -D json-server json-server-auth
+
+npm i
+
+npm run api
+
+```
