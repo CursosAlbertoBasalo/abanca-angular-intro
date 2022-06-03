@@ -1,9 +1,45 @@
 import { Injectable } from '@angular/core';
+import { Agency } from './api/agency.interface';
+
+// class Agency {
+//   public id: string = '';
+//   public name: string = '';
+// }
+
+// interface Agency {
+//   id: string;
+//   name: string;
+//   range: string;
+//   status: string;
+// }
+
+// type Agency = { id: string; name: string; range: string; status: string };
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
+  private agencies: Agency[] = [
+    {
+      id: 'space-y',
+      name: 'Space Y',
+      range: 'Interplanetary',
+      status: 'Active',
+    },
+    {
+      id: 'green-origin',
+      name: 'Green Origin',
+      range: 'Orbital',
+      status: 'Active',
+    },
+    {
+      id: 'virgin-way',
+      name: 'Virgin Way',
+      range: 'Orbital',
+      status: 'Pending',
+    },
+  ];
+
   private trips = [
     {
       id: 'space-y-moon-1',
@@ -66,9 +102,18 @@ export class DataService {
       premiumFoodPrice: 1000,
     },
   ];
+
   constructor() {}
 
-  public getTrips() {
+  public getAgencies(): Agency[] {
+    return this.agencies;
+  }
+
+  public postAgency(newAgency: Agency) {
+    this.agencies.push(newAgency);
+  }
+
+  public getTrips(): any[] {
     return this.trips;
   }
 }

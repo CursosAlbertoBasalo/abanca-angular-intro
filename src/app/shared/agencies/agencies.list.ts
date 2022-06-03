@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Agency } from 'src/app/core/api/agency.interface';
+import { DataService } from 'src/app/core/data.service';
 
 @Component({
   selector: 'app-agencies-list',
@@ -6,29 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agencies.list.css'],
 })
 export class AgenciesList implements OnInit {
-  public agencies = [
-    {
-      id: 'space-y',
-      name: 'Space Y',
-      range: 'Interplanetary',
-      status: 'Active',
-    },
-    {
-      id: 'green-origin',
-      name: 'Green Origin',
-      range: 'Orbital',
-      status: 'Active',
-    },
-    {
-      id: 'virgin-way',
-      name: 'Virgin Way',
-      range: 'Orbital',
-      status: 'Pending',
-    },
-  ];
+  public agencies: Agency[];
   public reloading = false;
 
-  constructor() {}
+  constructor(data: DataService) {
+    this.agencies = data.getAgencies();
+  }
 
   public reload(list: string) {
     this.reloading = true;

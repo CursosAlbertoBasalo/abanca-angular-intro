@@ -10,6 +10,7 @@ export class TripsList implements OnInit {
   public trips;
 
   public reloading = false;
+
   constructor(data: DataService) {
     this.trips = data.getTrips();
   }

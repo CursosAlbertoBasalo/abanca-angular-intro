@@ -5,7 +5,10 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Agency } from 'src/app/core/api/agency.interface';
+import { DataService } from 'src/app/core/data.service';
 import { FormMessagesService } from 'src/app/core/form-messages.service';
+import { UtilService } from 'src/app/core/util.service';
 
 @Component({
   selector: 'app-new-agency-form',
@@ -19,6 +22,8 @@ export class NewAgencyForm implements OnInit {
   // public formMessages: FormMessagesService;
 
   constructor(
+    private data: DataService,
+    private util: UtilService,
     private formMessages: FormMessagesService,
     formBuilder: FormBuilder
   ) {
@@ -50,13 +55,10 @@ export class NewAgencyForm implements OnInit {
 
   public onSubmitClick() {
     const { name, range, status } = this.form.value;
-    const id = this.getDashId(name);
-    const newAgencyData = { id, name, range, status };
+    const id = this.util.getDashId(name);
+    const newAgencyData: Agency = { id, name, range, status };
     console.warn('Send register data ', newAgencyData);
-  }
-
-  private getDashId(str: string): string {
-    return str.toLocaleLowerCase().replace(/ /g, '-');
+    this.data.postAgency(newAgencyData);
   }
 
   ngOnInit(): void {}
