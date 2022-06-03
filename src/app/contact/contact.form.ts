@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  AbstractControl,
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { FormMessagesService } from '../core/form-messages.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -15,7 +15,10 @@ import {
 export class ContactForm implements OnInit {
   public form: FormGroup;
 
-  constructor(formBuilder: FormBuilder) {
+  constructor(
+    private formMessages: FormMessagesService,
+    formBuilder: FormBuilder
+  ) {
     this.form = formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       email: new FormControl('', [
@@ -32,40 +35,20 @@ export class ContactForm implements OnInit {
   }
 
   public hasError(controlName: string): boolean {
-    const control = this.getControl(controlName);
-    if (!control) return false;
-    return control.invalid;
+    return this.formMessages.hasError(this.form, controlName);
   }
 
   public mustShowMessage(controlName: string): boolean {
-    const control = this.getControl(controlName);
-    if (!control) return false;
-    return control.touched && control.invalid;
+    return this.formMessages.mustShowMessage(this.form, controlName);
   }
 
   public getErrorMessage(controlName: string): string {
-    const control = this.getControl(controlName);
-    if (!control) return '';
-    if (!control.errors) return '';
-    const errors = control.errors;
-    let errorMessage = '';
-    errorMessage += errors['required'] ? '🔥 Field is required ' : ' ';
-    errorMessage += errors['email'] ? '🔥 Should be an email address ' : ' ';
-    errorMessage += errors['minlength']
-      ? `🔥 More than ${errors['minlength'].requiredLength} chars`
-      : ' ';
-    errorMessage += errors['maxLength']
-      ? `🔥 Less than ${errors['maxLength'].requiredLength} chars`
-      : ' ';
-    return errorMessage;
+    return this.formMessages.getErrorMessage(this.form, controlName);
   }
 
   public onSubmit(): void {
     const contact = this.form.value;
     console.warn('Send contact message', contact);
-  }
-  private getControl(controlName: string): AbstractControl | null {
-    return this.form.get(controlName);
   }
 
   ngOnInit(): void {}
