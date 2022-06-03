@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SimulatorService } from '../core/simulator.service';
 
 @Component({
   selector: 'app-simulator',
@@ -6,19 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./simulator.page.css'],
 })
 export class SimulatorPage implements OnInit {
-  public rocket = {
-    altitude: 1000,
-    fuel: 500,
-  };
+  public rocket;
 
-  constructor() {}
+  constructor(private service: SimulatorService) {
+    this.rocket = service.getNewRocket();
+  }
 
   ngOnInit(): void {}
 
   public onUp() {
-    this.rocket.altitude++;
+    this.rocket.altitude += this.service.delta;
   }
   public onDown() {
-    this.rocket.altitude--;
+    this.rocket.altitude -= this.service.delta;
   }
 }
